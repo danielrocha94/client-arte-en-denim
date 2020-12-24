@@ -1,15 +1,15 @@
 import React from 'react';
 import MenuOption from './menuOption'
 import Menu from './menu';
-import {faCog, faHistory, faShoppingCart, faUser, faFileInvoiceDollar} from '@fortawesome/free-solid-svg-icons';
+import {Page} from '../../components/Body';
+import {BasicBreadCrumb} from '../../components/BreadCrumb';
+import {faCog, faHistory, faShoppingCart, faUser, faFileInvoiceDollar, faCreditCard} from '@fortawesome/free-solid-svg-icons';
 
 
 const Clients = (props) => {
   return (
-    <div>
-      <div>
-        Bienvenido
-      </div>
+    <Page>
+      <BasicBreadCrumb>Panel de Control</BasicBreadCrumb>
       <Menu>
         <MenuOption
           icon={faUser}
@@ -26,6 +26,11 @@ const Clients = (props) => {
         description={"Agrega, cambia, o elimina algun pedido"}
         >Ordenes</MenuOption>
 
+        <MenuOption 
+        icon={faCreditCard}
+        description={"Administra tu linea de credito, tu deuda actual y saldo restante"}
+        >Linea de credito</MenuOption>
+
         <MenuOption
           icon={faHistory}
           description={"Mira tus movimientos, operaciones y estados de cuenta anteriores"}
@@ -37,7 +42,7 @@ const Clients = (props) => {
         >Configuración</MenuOption>
 
       </Menu>
-    </div>
+    </Page>
   )
 }
 

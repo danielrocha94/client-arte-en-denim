@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import {StyledNav} from './style';
+import {StyledNav, HeaderTitle} from './style';
 
 class DefaultHeader extends Component {
   render() {
     return (
       <StyledNav>
-        {this.props.children}
+        <HeaderTitle>{this.props.children}</HeaderTitle>
       </StyledNav>
     );
   }

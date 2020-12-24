@@ -9,13 +9,30 @@ export const StyledNav = Styled(Nav)`
   background-color: ${props => props.theme.bg.header};
   color: ${props => props.theme.text.color.default};
   border-bottom: 1px solid #27303e;
-  padding: 0 15px;
-  height: 56px;
+  padding: 8px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 64px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 9;
+  box-sizing: border-box;
 `;
 
+export const HeaderTitle = Styled.div`
+  font-size: 22px;
+  display: inline-block;
+  color: rgba(255,255,255, .87 );
+  line-height: 24px;
+  position: relative;
+  top: -1.5px;
+  vertical-align: middle;
+  cursor: pointer;
+  font-weight: 500;
+  padding-left: 15px;
+`;
 
 export const ActionBtnList = Styled.ul`
   margin: 0;

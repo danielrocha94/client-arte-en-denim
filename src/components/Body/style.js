@@ -10,14 +10,18 @@ export const PageTitle = Styled.h3`
 `;
 
 export const InnerPage = Styled.div`
-  position: relative;
   display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 30px 30px 0px;
+  flex-direction: column;
+  position: relative;
+  flex-grow: 1;
   height: 100%;
   background-color: ${props => props.theme.bg.default};
   box-shadow: inset 9px 0 10px -9px rgba(0,0,0,.08);
+  padding-left: 0px;
+  min-width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  padding-top: 65px;
 `;
 
 export const Panel = Styled.div`

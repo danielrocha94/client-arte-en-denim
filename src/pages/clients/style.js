@@ -6,7 +6,7 @@ export const MenuContainer = Styled.div`
   padding-top: 32px;
   padding-right: 48px;
   padding-left: 48px;
-  border: 1px solid black;
+  // border: 1px solid black;
 `;
 
 export const MenuWrapper = Styled.div`
