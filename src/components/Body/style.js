@@ -1,4 +1,5 @@
 import Styled from 'styled-components';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 export const PageTitle = Styled.h3`
   border-color: #899bca;
@@ -56,5 +57,83 @@ export const PanelSubtitle = Styled.h4`
 
 export const BodyContent = Styled.div`
   display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  margin: 0 auto;
+  width: 100%;
+`;
+
+export const BodyContentWrapper = Styled.div`
   height: 100%;
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  transform: translateX(-50%)
+  translateY(0) translateZ(0);
+  padding: 0 24px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+`;
+
+export const BodyContentTitle = Styled.div`
+  max-height: 100%;
+  overflow: auto;
+  margin-top: 24px;
+  width: 25%;
+  padding: 0 8px 16px 8px;
+  display: flex;
+  flex-wrap: wrap;
+  
+`;
+
+export const BodyContentMain = Styled.div`
+  margin-top: 24px;
+  box-sizing: border-box;
+  float: left;
+  padding: 0 8px 16px 8px;
+  width: 75%;
+`;
+
+export const SideHeadingWrapper = Styled.div`
+  background: #fff;
+  border-radius: 2px;
+  border-top: 1px solid #e0e0e0;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14),
+  0 2px 1px -1px rgba(0,0,0,0.12),
+  0 1px 3px 0 rgba(0,0,0,0.2);
+  padding: 15px;
+  height: 92px;
+  width: 100%;
+  box-sizing: border-box;
+`;
+
+export const SideHeadingContainer = Styled.div`
+  align-items: center;
+  flex-direction: row;
+  padding: 0 0 7px;
+  display: flex;
+`;
+
+
+export const SideHeadingIcon = Styled(FontAwesomeIcon)`
+  margin: 5px 10px 0 0;
+  padding: 0;
+  font-size: 32px;
+  color: #607D8B;
+`;
+
+
+export const SideHeadingText = Styled.div`
+  overflow: hidden;
+  width: 100%;
+  text-align: left;
+  font-size: 24px;
+  line-height: 32px;
+  margin: 5px;
+  margin-bottom: 15px;
+  margin-top: 10px;
 `;

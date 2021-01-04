@@ -4,7 +4,7 @@ import {MenuOptionWrapper, DescriptionText, OptionName, OptionIcon, MenuOptionCo
 const menuOption = (props) => {
   return (
     <MenuOptionContainer>
-      <MenuOptionWrapper>
+      <MenuOptionWrapper to={props.url}>
         <OptionIcon icon={props.icon}/>
         <OptionName>
           {props.children}

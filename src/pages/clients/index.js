@@ -39,6 +39,7 @@ const Clients = (props) => {
         <MenuOption
         icon={faCog}
         description={"Actualiza la información sobre tu cuenta"}
+        url="/clientes/configurar"
         >Configuración</MenuOption>
 
       </Menu>

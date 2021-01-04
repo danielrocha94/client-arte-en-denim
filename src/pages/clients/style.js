@@ -1,5 +1,6 @@
 import Styled from 'styled-components';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {Link} from 'react-router-dom';
 
 export const MenuContainer = Styled.div`
   display: flex;
@@ -26,7 +27,9 @@ export const MenuOptionContainer = Styled.div`
   align-items: center;
 `;
 
-export const MenuOptionWrapper = Styled.div`
+export const MenuOptionWrapper = Styled(Link)`
+  text-decoration: none;
+  color: black;
   padding: 16px;
   display: flex;
   flex-direction: column;

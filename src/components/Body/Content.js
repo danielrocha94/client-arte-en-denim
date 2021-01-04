@@ -1,11 +1,26 @@
 import React from 'react';
-import LeftSidebar from '../../pages/shared/sidebar';
-import {BodyContent} from './style';
+import {
+  BodyContent,
+  BodyContentWrapper,
+  BodyContentTitle,
+  BodyContentMain,
+} from './style';
+
+import {SideHeading} from '../Body';
 
 const Content = (props) => {
   return (
     <BodyContent>
-      {props.children}
+      <BodyContentWrapper>
+        <BodyContentTitle>
+          <SideHeading icon={props.icon}>
+            {props.title}
+          </SideHeading>
+        </BodyContentTitle>
+        <BodyContentMain>
+          {props.children}
+        </BodyContentMain>
+      </BodyContentWrapper>
     </BodyContent>
   )
 }
