@@ -21,8 +21,8 @@ export const StyledNav = Styled(Nav)`
   box-sizing: border-box;
 `;
 
-export const HeaderTitle = Styled.div`
-  font-size: 22px;
+export const HeaderTitle = Styled(Link)`
+  font-size: 24px;
   display: inline-block;
   color: rgba(255,255,255, .87 );
   line-height: 24px;
@@ -31,7 +31,11 @@ export const HeaderTitle = Styled.div`
   vertical-align: middle;
   cursor: pointer;
   font-weight: 500;
-  padding-left: 15px;
+  padding-left: 24px;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const ActionBtnList = Styled.ul`
@@ -69,4 +73,35 @@ export const HeaderBtnA = Styled(Link)`
 
 export const HeaderBtnFa = Styled(FontAwesomeIcon)`
   color: rgba(225,235,245,.95)!important;
+`;
+
+
+export const HeaderImgWrapper = Styled.div`
+  padding: 4px 6px;
+  vertical-align: middle;
+`;
+
+export const HeaderImgContainer = Styled.div`
+  padding: 4px;
+  vertical-align: middle;
+  border-radius: 2px;
+  box-sizing: border-box;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+`;
+
+export const HeaderImgImage = Styled.img`
+  height: 32px;
+  width: 32px;
+  border: 0;
+  background-size: 32px 32px;
+  border-radius: 50%;
+  margin: 0;
+  position: relative;
+  z-index: 0;
 `;
