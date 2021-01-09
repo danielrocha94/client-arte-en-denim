@@ -9,4 +9,7 @@ export const BreadcrumbContainer = Styled.nav`
   font-size: 14px;
   align-items: center;
   background-color: white;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 `;

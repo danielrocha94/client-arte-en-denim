@@ -37,7 +37,7 @@ export const Tr = Styled.tr`
 export const Th = Styled.th`
   cursor: pointer;
   min-width: 40px;
-  border-bottom: 1px solid rgb(46,63,91);
+  box-shadow: inset 0 -1px #E3E9EE;
   padding-top: 12px;
   padding-bottom: 12px;
   padding-right: 8px;
@@ -56,7 +56,7 @@ export const Td = Styled.td`
   padding-bottom: 12px;
   padding-right: 8px;
   padding-left: 8px;
-  border-bottom: 1px solid rgb(46,63,91);
+  box-shadow: inset 0 -1px #E3E9EE;
   &:hover {
     color: ${props => props.theme.text.color.tableHover };
     font-weight: 600;

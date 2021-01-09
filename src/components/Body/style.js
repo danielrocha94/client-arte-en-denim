@@ -1,5 +1,6 @@
 import Styled from 'styled-components';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {device} from '../themes/default/constants';
 
 export const PageTitle = Styled.h3`
   border-color: #899bca;
@@ -21,8 +22,11 @@ export const InnerPage = Styled.div`
   padding-left: 0px;
   min-width: 100%;
   min-height: 100%;
-  overflow: hidden;
+  overflow: scroll;
   padding-top: 65px;
+  @media ${device.laptop} {
+    width: 100%;
+  }
 `;
 
 export const Panel = Styled.div`
@@ -58,44 +62,55 @@ export const PanelSubtitle = Styled.h4`
 export const BodyContent = Styled.div`
   display: flex;
   flex-direction: column;
+  overflow: auto;
   flex: 1 1 0%;
-  margin: 0 auto;
+  margin: 20px auto;
   width: 100%;
 `;
 
 export const BodyContentWrapper = Styled.div`
-  height: 100%;
+  min-height: 100%;
   left: 50%;
   overflow: hidden;
   position: absolute;
+  overflow: auto;
   transform: translateX(-50%)
   translateY(0) translateZ(0);
-  padding: 0 24px;
+  padding: 24px;
   box-sizing: border-box;
   width: 100%;
   max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
+  @media ${device.laptop} {
+    flex-direction: column;
+  }
 `;
 
 export const BodyContentTitle = Styled.div`
   max-height: 100%;
-  overflow: auto;
-  margin-top: 24px;
+  overflow: hidden;
   width: 25%;
   padding: 0 8px 16px 8px;
   display: flex;
   flex-wrap: wrap;
-  
+  min-height: 93px;
+  @media ${device.laptop} {
+    width: 100%;
+    flex-flow: column wrap;
+  }
 `;
 
 export const BodyContentMain = Styled.div`
-  margin-top: 24px;
   box-sizing: border-box;
   float: left;
   padding: 0 8px 16px 8px;
   width: 75%;
+  min-width: 470px;
+  @media ${device.laptop} {
+    width: 100%;
+  }
 `;
 
 export const SideHeadingWrapper = Styled.div`
@@ -144,7 +159,6 @@ export const SectionWrapper = Styled.div`
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14),
   0 2px 1px -1px rgba(0,0,0,0.12),
   0 1px 3px 0 rgba(0,0,0,0.2);
-  // color: rgba(0,0,0,.54);
   margin-bottom: 12px;
   margin-left: auto;
   margin-right: auto;
@@ -173,6 +187,7 @@ export const SectionHeader = Styled.div`
   width: 100%;
   flex-wrap: wrap;
   height: initial;
+  min-width: 470px;
 `;
 
 export const SectionHeaderTitle = Styled.h4`

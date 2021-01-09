@@ -62,9 +62,6 @@ const theme = {
       tableHover: "#323232"
     },
     size: "14px",
-  },
-  cons: {
-    ...constants,
   }
 }
 
