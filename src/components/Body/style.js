@@ -144,7 +144,7 @@ export const SectionWrapper = Styled.div`
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14),
   0 2px 1px -1px rgba(0,0,0,0.12),
   0 1px 3px 0 rgba(0,0,0,0.2);
-  color: rgba(0,0,0,.54);
+  // color: rgba(0,0,0,.54);
   margin-bottom: 12px;
   margin-left: auto;
   margin-right: auto;
@@ -163,7 +163,7 @@ export const SectionHeader = Styled.div`
   margin-right: auto;
   max-width: 1600px;
   width: 100%;
-  padding: 0 24px 16px;
+  padding: 0 16px 16px 24px;
   display: flex;
   margin-top: 8px;
   min-height: 48px;
@@ -181,8 +181,22 @@ export const SectionHeaderTitle = Styled.h4`
   font-weight: 400;
 `;
 
+export const HeaderIconContainer = Styled.div`
+  margin: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  vertical-align: center;
+  &:hover {
+    background-color: rgba(0,0,0,0.1);
+  }
+`;
+
 export const HeaderCarat = Styled(FontAwesomeIcon)`
   font-size: 18px;
+  align-self: center;
 `;
 
 export const SectionContainer = Styled.div`
@@ -215,14 +229,4 @@ export const SectionFooterWrapper = Styled.div`
   color: rgba(0,0,0,0.38);
   font-size: 14px;
   padding: 0;
-`;
-
-export const HeaderImgWrapper = Styled.div`
-  padding: 4px 2px;
-  padding-left: 6px;
-  vertical-align: middle;
-`;
-
-export const HeaderImgContainer = Styled.div`
-
 `;

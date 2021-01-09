@@ -6,8 +6,6 @@ import {
   SideHeadingText
 } from './style';
 
-import {faCog} from '@fortawesome/free-solid-svg-icons';
-
 const SideHeading = (props) => {
   return (
     <SideHeadingWrapper>

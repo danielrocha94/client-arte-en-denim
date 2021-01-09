@@ -4,6 +4,7 @@ import DataThead from './DataThead';
 import Row from './Row';
 import Header from './Header';
 import Datum from './Datum';
+import ColoredDatum from './ColoredDatum';
 
 export {
   DataTable,
@@ -11,5 +12,6 @@ export {
   DataThead,
   Row,
   Header,
-  Datum
+  Datum,
+  ColoredDatum,
 }

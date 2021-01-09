@@ -1,5 +1,9 @@
 import React from 'react';
-import {SectionTagWrapper, SectionTagHeader, SectionTagContent} from './style';
+import {
+  SectionTagWrapper,
+  SectionTagHeader, 
+  SectionTagContent
+} from './style';
 
 const SectionTag = (props) => {
   return (

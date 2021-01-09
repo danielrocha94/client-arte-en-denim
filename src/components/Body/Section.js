@@ -1,16 +1,22 @@
 import React from 'react';
-import {SectionWrapper, SectionHeader, SectionHeaderTitle, HeaderCarat, SectionContainer} from './style';
+import {SectionWrapper, SectionHeader, HeaderIconContainer, SectionHeaderTitle, HeaderCarat, SectionContainer} from './style';
 import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
 
 const Section = (props) => {
   return (
     <SectionWrapper>
-      <SectionHeader>
-        <SectionHeaderTitle>
-          {props.title}
-        </SectionHeaderTitle>
-        <HeaderCarat icon={faAngleDown}/>
-      </SectionHeader>
+      { !props.hideHeader &&
+        <SectionHeader>
+          {props.title &&
+            <SectionHeaderTitle>
+              {props.title}
+            </SectionHeaderTitle>
+          }
+          <HeaderIconContainer>
+            <HeaderCarat icon={faAngleDown}/>
+          </HeaderIconContainer>
+        </SectionHeader>
+      }
       <SectionContainer>
         {props.children}
       </SectionContainer>

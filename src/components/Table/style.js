@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled, {css} from 'styled-components';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 export const Table = Styled.table`
@@ -46,7 +46,6 @@ export const Th = Styled.th`
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
   position: sticky;
-  border-right: 1px solid #e7e7e7;
   background-color: ${props => !props.header && props.theme.bg.tableOdd };
   top:0;
 `;
@@ -58,7 +57,6 @@ export const Td = Styled.td`
   padding-right: 8px;
   padding-left: 8px;
   border-bottom: 1px solid rgb(46,63,91);
-  border-right: 1px solid #dbdbdb;
   &:hover {
     color: ${props => props.theme.text.color.tableHover };
     font-weight: 600;
@@ -91,3 +89,39 @@ export const ShowMore = Styled.button`
     outline:none;
   }
 `
+export const ColoredDatumWrapper = Styled.div`
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  width: 75px;
+  margin: 0;
+  ${props => props.variant === "success" && SuccessDatum};
+  ${props => props.variant === "warning" && WarningDatum};
+  ${props => props.variant === "danger" && DangerDatum};
+`;
+
+const SuccessDatum = css`
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #0e6245;
+`;
+
+const WarningDatum = css`
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  color: #856404;
+  width: 88px;
+`;
+
+const DangerDatum = css`
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+  width: 88px;
+`;
+
+export const ColoredDatumIcon = Styled(FontAwesomeIcon)`
+  margin-left: 5px;
+  font-size: 12px;
+`;

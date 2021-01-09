@@ -6,6 +6,7 @@ import defaultTheme from './components/themes/default';
 import Header from './pages/shared/header';
 
 import Clients from './pages/clients';
+import Payments from './pages/clients/payments';
 import Configuration from './pages/clients/configuration';
 
 const Routes = (props) => {
@@ -30,7 +31,7 @@ const Routes = (props) => {
             <Route exact path="/clientes/cuenta" component={Clients}/>
             <Route exact path="/clientes/historial" component={Clients}/>
             <Route exact path="/clientes/ordenes" component={Clients}/>
-            <Route exact path="/clientes/transacciones" component={Clients}/>
+            <Route exact path="/clientes/pagos" component={Payments}/>
             <Route exact path="/clientes/configurar" component={Configuration}/>
           </Switch>
         </div>
