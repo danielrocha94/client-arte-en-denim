@@ -111,14 +111,14 @@ const WarningDatum = css`
   background-color: #fff3cd;
   border: 1px solid #ffeeba;
   color: #856404;
-  width: 88px;
+  width: 90px;
 `;
 
 const DangerDatum = css`
   background-color: #f8d7da;
   border: 1px solid #f5c6cb;
   color: #721c24;
-  width: 88px;
+  width: 90px;
 `;
 
 export const ColoredDatumIcon = Styled(FontAwesomeIcon)`

@@ -1,0 +1,4 @@
+export const API_BASE_URL = process.env.REACT_APP_TEST_API_BASE_URL;
+
+export const FETCH_PAYMENTS = 'FETCH_PAYMENTS';
+export const FETCH_BALANCES = 'FETCH_BALANCES';

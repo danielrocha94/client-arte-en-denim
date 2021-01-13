@@ -18,7 +18,7 @@ const Clients = (props) => {
 
         <MenuOption
           icon={faFileInvoiceDollar}
-          description={"Administra y verifica tus pagos"}
+          description={"Administra y verifica tus pagos, cobranza y saldos"}
           url="/clientes/pagos"
         >Pagos</MenuOption>
         

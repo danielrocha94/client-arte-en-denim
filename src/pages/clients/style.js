@@ -17,6 +17,7 @@ export const MenuWrapper = Styled.div`
   margin: 0;
   flex-wrap: wrap;
   box-sizing: content-box;
+  padding-top: 18px;
 `;
 
 export const MenuOptionContainer = Styled.div`
