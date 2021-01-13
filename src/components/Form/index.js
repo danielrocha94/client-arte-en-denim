@@ -8,7 +8,7 @@ import BasicInputLabel from './BasicInputLabel';
 import BasicErrorField from './BasicErrorField';
 import BasicCheckbox from './BasicCheckbox';
 import BasicRadio from './BasicRadio';
-import RangeIndicator from './RangeIndicator';
+// import RangeIndicator from './RangeIndicator';
 
 import MoneyInput from './MoneyInput';
 import Title from './Title';
@@ -28,5 +28,5 @@ export {
   BasicRadio,
   Title,
   // PDFRender,
-  RangeIndicator,
+  // RangeIndicator,
 }

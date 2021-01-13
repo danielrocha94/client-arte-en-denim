@@ -5,6 +5,7 @@ import Row from './Row';
 import Header from './Header';
 import Datum from './Datum';
 import ColoredDatum from './ColoredDatum';
+import DataTableFooter from './DataTableFooter';
 
 export {
   DataTable,
@@ -14,4 +15,5 @@ export {
   Header,
   Datum,
   ColoredDatum,
+  DataTableFooter,
 }

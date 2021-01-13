@@ -6,7 +6,7 @@ export const FormGroup = Styled.div`
 `;
 
 export const InputLabel = Styled.label`
-  font-weight: 400;
+  font-weight: 600;
   color: ${props => props.theme.text.color.label};
   padding-bottom: 5px;
   font-size: 14px;
@@ -63,20 +63,30 @@ export const ExclamationIcon = Styled(FontAwesomeIcon)`
 
 export const DefaultInput = Styled.input`
   border-radius: 4px;
-  box-shadow: none;
+  min-height: 44px;
+  cursor: text;
+  transition: background-color .24s,box-shadow .24s;
+  text-align: left;
+  white-space: nowrap;
+  font-weight: 400;
   border: ${props => props.theme.form.color.inputBorder};
   color: ${props => props.theme.text.color.input};
   background: ${props => props.theme.bg.input};
-  padding-left: 5%;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   font-size: 16px;
   display: inline-block;
-  width: 94%;
+  width: 100%;
   height: 34px;
-  line-height: 1.43;
+  line-height: 28px;
+  margin:0;
+  vertical-align: middle;
   &:focus {
     outline: none !important;
     border: ${props => props.theme.form.color.inputBorder};
-    box-shadow: 0 0 10px #617dae;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(58, 151, 212, 0.36) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
   }
   &:hover {
     border: ${props => props.theme.form.color.inputBorderHover};

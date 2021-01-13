@@ -3,7 +3,7 @@ import constants from './constants';
 const theme = {
   bg: {
     border: "#465671",
-    button: "#ffc107",
+    button: "rgb(99, 91, 255)",
     buttonActive: "#E0A700",
     cancel: '#9fb3ca',
     danger: "#dc3545",
@@ -30,7 +30,7 @@ const theme = {
   },
   form: {
     color: {
-      inputBorder: "1px solid #324462",
+      inputBorder: "1px solid rgba(133, 133, 133, .5)",
       inputBorderHover: "1px solid #465671",
       disabledBorder: "#2f4060",
     },
@@ -42,16 +42,17 @@ const theme = {
   text: {
     font: "Calibri",
     color: {
+      button: "white",
       default: "rgba(225,235,245,.7)",
       light: "#bdd1f8",
       panel: "black",
-      label: "white",
+      label: "#3c4257",
       hover: "rgba(225,235,245,1)",
       dim: "rgba(225,235,245,.45)",
       danger: "#721c24",
       disabled: "white",
       error: "white",
-      input: "black",
+      input: "rgb(26, 31, 64)",
       info: "#white",
       danger: "#EC5E69",
       success: "white",

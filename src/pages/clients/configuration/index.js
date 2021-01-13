@@ -16,13 +16,13 @@ const Configuration = (props) => {
       <Content title="Configuración" icon={faCog}>
         <Section title="Perfil">
         <SectionTag title="Nombre">
-            Unique Brother
+          ANTONIO BOJALIL
           </SectionTag>
           <SectionTag title="Email">
-            admin@uniquebrother.com
+            usuario@ejemplo.com
           </SectionTag>
           <SectionTag title="Cliente ID">
-            12345678abc
+            A08
           </SectionTag>
           <SectionFooter>
             Información del perfil | Configuración del perfil
@@ -30,14 +30,14 @@ const Configuration = (props) => {
         </Section>
 
         <Section title="Preferencias">
-          <SectionTag title="Opciones">
-            Unique Brother
+          <SectionTag title="Ciudad">
+            Puebla
           </SectionTag>
-          <SectionTag title="Direccion">
-            admin@uniquebrother.com
+          <SectionTag title="Descripcion">
+            Contado
           </SectionTag>
-          <SectionTag title="Nuevos productos">
-            12345678abc
+          <SectionTag title="Saldo">
+            28971.44
           </SectionTag>
         </Section>
       </Content>

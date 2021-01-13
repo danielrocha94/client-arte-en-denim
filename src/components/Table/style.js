@@ -57,6 +57,7 @@ export const Td = Styled.td`
   padding-right: 8px;
   padding-left: 8px;
   box-shadow: inset 0 -1px #E3E9EE;
+  font-weight: ${props => props.bold ? "600" : "400" };
   &:hover {
     color: ${props => props.theme.text.color.tableHover };
     font-weight: 600;
@@ -124,4 +125,9 @@ const DangerDatum = css`
 export const ColoredDatumIcon = Styled(FontAwesomeIcon)`
   margin-left: 5px;
   font-size: 12px;
+`;
+
+export const TableFooterWrapper = Styled.div`
+  display: flex;
+  justify-content: space-between;
 `;

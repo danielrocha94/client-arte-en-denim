@@ -4,6 +4,7 @@ import './index.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'moment/locale/es-mx';
+import 'fontsource-roboto';
 import reportWebVitals from './reportWebVitals';
 import Routes from './routes';
 

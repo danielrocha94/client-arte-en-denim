@@ -72,11 +72,13 @@ export const LinkAnchor = Styled(Link)`
 `;
 
 export const ButtonWrapper = Styled(Button)`
-  color: black;
+  color: ${props => props.theme.text.color.button};
   font-size: 16px;
+  font-weight: 500;
+  line-height: 28px;
   border-radius: 4px;
   width: 100%;
-  padding: 7px;
+  padding: 8px 16px;
   background-color: ${props => props.theme.bg.button};
   border-color: ${props => props.theme.bg.button};
   cursor: pointer;

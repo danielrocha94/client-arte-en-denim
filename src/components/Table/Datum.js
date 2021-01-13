@@ -4,7 +4,7 @@ import {Td,ShowMore} from './style';
 const Datum = (props) => {
   const [showMore, setShowMore] = useState(false);
   return (
-    <Td colSpan={props.colSpan || 1}>
+    <Td colSpan={props.colSpan || 1} bold={props.bold}>
       {
         props.showMore &&
         props.children.length > parseInt(props.showMore) ?

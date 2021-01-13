@@ -1,9 +1,11 @@
-import React from 'react';
-import {DataTable, DataTbody, DataThead, Header, Row, Datum, ColoredDatum} from '../../../components/Table';
+import React, {useState} from 'react';
+import {DataTable, DataTbody, DataThead, Header, Row, Datum, ColoredDatum, DataTableFooter} from '../../../components/Table';
 import {faCheck, faExclamationTriangle, faTimes} from '@fortawesome/free-solid-svg-icons';
 import Moment from 'react-moment';
 
 const BalanceRows = (props) => {
+  let [page, setPage] = useState({per: 10, current: 1, range: {min: 0, max: 10} });
+
   const getDocTypeName = (type) => {
     let DocTypeObj = {
       IN: "Factura",
@@ -23,6 +25,16 @@ const BalanceRows = (props) => {
     }
     return DocTypeObj[type];
   }
+
+  const handlePageChange = (e, value) => {
+    setPage({
+      ...page,
+      current: value,
+      range: {min: ((value-1) * page.per), max: (value * 10)}
+    });
+  }
+
+
   return (
     <>
       <DataTable>
@@ -35,10 +47,10 @@ const BalanceRows = (props) => {
           <Header>Fecha</Header>
         </DataThead>
         <DataTbody>
-          {props.balances.count > 0 && props.balances.rows.map(balance => {
+          {props.balances.count > 0 && props.balances.rows.slice(page.range.min, page.range.max).map(balance => {
             return (
               <Row>
-                <Datum>${balance.CuryOrigDocAmt} MXN</Datum>
+                <Datum boldc>${balance.CuryOrigDocAmt} MXN</Datum>
                 <Datum><ColoredDatum variant={balance.balance > 0 ? "warning":"success"} icon={faCheck}>{balance.balance > 0 ? "Pendiente" : "Exitoso" } </ColoredDatum></Datum>
                 <Datum>{balance.balance}</Datum>
                 <Datum>{getDocTypeName(balance.DocType)}</Datum>
@@ -49,7 +61,10 @@ const BalanceRows = (props) => {
           })}
         </DataTbody>
       </DataTable>
-      <b>{props.balances.count || 0}</b> resultados
+      <DataTableFooter
+        data={props.balances}
+        onChange={handlePageChange}
+        page={page} />
     </>
   )
 }

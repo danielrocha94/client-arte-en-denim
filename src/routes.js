@@ -8,6 +8,7 @@ import Header from './pages/shared/header';
 import Clients from './pages/clients';
 import Payments from './pages/clients/payments';
 import Configuration from './pages/clients/configuration';
+import Login from './pages/session/login';
 
 const Routes = (props) => {
   return (
@@ -33,6 +34,7 @@ const Routes = (props) => {
             <Route exact path="/clientes/ordenes" component={Clients}/>
             <Route exact path="/clientes/pagos" component={Payments}/>
             <Route exact path="/clientes/configurar" component={Configuration}/>
+            <Route exact path="/login" component={Login}/>
           </Switch>
         </div>
       </ThemeProvider>

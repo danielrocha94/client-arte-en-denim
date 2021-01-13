@@ -31,10 +31,14 @@ export const HeaderTitle = Styled(Link)`
   vertical-align: middle;
   cursor: pointer;
   font-weight: 500;
-  padding-left: 24px;
+  margin-left: 14px;
+  padding: 10px;
   text-decoration: none;
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    color: rgba(255,255,255, 1 );
+    background-color: rgba(255,255,255, 0.1 );
+    border-radius: 20px;
   }
 `;
 
