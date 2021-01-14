@@ -13,7 +13,7 @@ const theme = {
     error: "rgb(179,20,18)",
     errorHover: "#c24241",
     errorImg: "linear-gradient(to left, #f6aaa9, #fad4d4)",
-    header: "rgba(51,103,214,1)",
+    header: "#474747",
     hoverMenuItem: "#1c2636",
     input: "white",
     leftSidebar: "#4e525a",
@@ -58,6 +58,7 @@ const theme = {
       success: "white",
       successGreen: "green",
       disabled: "rgba(225,235,245,.9)",
+      optionIcon: "#6987C9",
       pending: "white",
       formTitle: "#007bff",
       tableHover: "#323232"

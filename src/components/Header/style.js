@@ -109,3 +109,8 @@ export const HeaderImgImage = Styled.img`
   position: relative;
   z-index: 0;
 `;
+
+export const HeaderTitleImg = Styled.img`
+  height: 45px;
+  margin-left: 20px;
+`;

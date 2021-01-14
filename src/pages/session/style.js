@@ -1,4 +1,5 @@
 import Styled from 'styled-components';
+import {device} from '../../components/themes/default/constants';
 
 export const LoginContentWrapper = Styled.div`
   width: 1080px;
@@ -11,6 +12,12 @@ export const LoginContentWrapper = Styled.div`
   display: flex;
   flex-direction: row;
   height: 100%;
+  @media ${device.tablet} {
+    width: 100%;
+  }
+  @media ${device.mobileL} {
+    width: 100%;
+  }
 `;
 
 export const FormContainer = Styled.div`
@@ -21,6 +28,10 @@ export const FormContainer = Styled.div`
   margin: 0;
   padding: 0;
   outline: 0;
+  @media ${device.tablet} {
+    width: 70%;
+    min-width: 350px;
+  }
 `;
 
 export const LogoContainer = Styled.div`
@@ -43,11 +54,17 @@ export const LoginContainer = Styled.div`
 export const LoginContainerFormPadding = Styled.div`
   padding: 56px 48px;
   box-sizing: border-box;
+  @media ${device.tablet} {
+    padding: 15px;  
+  }
 `;
 
 export const LoginContainerFormPaddingHorizontal = Styled.div`
   padding-left: 20px;
   padding-right: 20px;
+  @media ${device.tablet} {
+    padding: 5px;  
+  }
 `;
 
 export const LoginContainerMain = Styled.div`
@@ -67,6 +84,43 @@ export const LoginHeader = Styled.div`
 export const LoginFormContainer = Styled.div`
   margin-top: 20px;
   box-sizing: border-box;
-
 `;
 
+export const FirstRightStripe = Styled.div`
+  top: 658px;
+  right: -10px;
+  left: calc(50% + 430px);
+  height: 40px;
+  background-color: #7a73ff;
+  position: absolute;
+`;
+
+export const StripeBackground = Styled.div`
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: -250px;
+  bottom: 0;
+  z-index: 0;
+  transform: skewY(-12deg);
+`;
+
+export const FirstLeftStripe = Styled.div`
+  top: 698px;
+  left: -10px;
+  right: calc(50% + 405px);
+  height: 40px;
+  background-color: #7a73ff;
+  position: absolute;
+`;
+
+export const SecondLeftStripe = Styled.div`
+  top: 668px;
+  left: calc(50% - 700px);
+  right: calc(50% + 540px);
+  height: 40px;
+  background-color: #80e9ff;
+  position: absolute;
+  z-index: 2;
+  opacity: 0.8;
+`;

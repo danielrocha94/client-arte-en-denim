@@ -60,6 +60,6 @@ export const OptionName = Styled.div`
 `;
 
 export const OptionIcon = Styled(FontAwesomeIcon)`
-  color: #4285f4;
+  color: ${props => props.theme.text.color.optionIcon};
   font-size: 50px;
 `;

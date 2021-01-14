@@ -9,7 +9,11 @@ import {
    LoginContainerMain,
    LoginHeader,
    LoginContainer,
-   LoginFormContainer
+   LoginFormContainer,
+   FirstRightStripe,
+   StripeBackground,
+   FirstLeftStripe,
+   SecondLeftStripe
   } from './style';
 
 import {BasicInput} from '../../components/Form/';
@@ -17,7 +21,12 @@ import {DefaultButton} from '../../components/Button';
 
 const Login = (props) => {
   return (
-    <Page style={{background: "#EEEEEE"}}>
+    <Page style={{}}>
+      <StripeBackground>
+        <SecondLeftStripe/>
+        <FirstLeftStripe/>
+        <FirstRightStripe/>
+      </StripeBackground>
       <LoginContentWrapper>
         <FormContainer>
           <LogoContainer>

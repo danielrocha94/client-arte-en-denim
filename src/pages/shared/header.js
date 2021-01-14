@@ -5,7 +5,6 @@ import {DefaultHeader} from '../../components/Header';
 const Header = (props) => {
   return (
     <DefaultHeader>
-      Arte en Denim
     </DefaultHeader>
   )
 }
