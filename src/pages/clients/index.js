@@ -14,6 +14,7 @@ const Clients = (props) => {
         <MenuOption
           icon={faUser}
           description={"Observa información relevante sobre tu cuenta"}
+          url="/clientes/cuenta"
         >Cuenta</MenuOption>
 
         <MenuOption

@@ -42,6 +42,7 @@ export const MenuOptionWrapper = Styled(Link)`
   width: 130px;
   &:hover {
     background: #e0e0e0;
+    color: ${props => props.theme.text.color.optionIconHover};
   }
 `;
 
@@ -62,4 +63,7 @@ export const OptionName = Styled.div`
 export const OptionIcon = Styled(FontAwesomeIcon)`
   color: ${props => props.theme.text.color.optionIcon};
   font-size: 50px;
+  &:hover {
+    color: ${props => props.theme.text.color.optionIconHover};
+  }
 `;

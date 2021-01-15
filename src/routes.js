@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from "styled-components";
+import {AuthRoute} from './components/Route';
 
 import defaultTheme from './components/themes/default';
 import Header from './pages/shared/header';
@@ -8,6 +9,7 @@ import Header from './pages/shared/header';
 import Clients from './pages/clients';
 import Payments from './pages/clients/payments';
 import Configuration from './pages/clients/configuration';
+import Account from './pages/clients/account';
 import Login from './pages/session/login';
 
 const Routes = (props) => {
@@ -28,12 +30,12 @@ const Routes = (props) => {
           height: "100%"}}>
           <Header/>
           <Switch>
-            <Route exact path="/clientes" component={Clients}/>
-            <Route exact path="/clientes/cuenta" component={Clients}/>
-            <Route exact path="/clientes/historial" component={Clients}/>
-            <Route exact path="/clientes/ordenes" component={Clients}/>
-            <Route exact path="/clientes/pagos" component={Payments}/>
-            <Route exact path="/clientes/configurar" component={Configuration}/>
+            <AuthRoute exact path="/clientes" component={Clients}/>
+            <AuthRoute exact path="/clientes/cuenta" component={Account}/>
+            <AuthRoute exact path="/clientes/historial" component={Clients}/>
+            <AuthRoute exact path="/clientes/ordenes" component={Clients}/>
+            <AuthRoute exact path="/clientes/pagos" component={Payments}/>
+            <AuthRoute exact path="/clientes/configurar" component={Configuration}/>
             <Route exact path="/login" component={Login}/>
           </Switch>
         </div>

@@ -59,6 +59,7 @@ const theme = {
       successGreen: "green",
       disabled: "rgba(225,235,245,.9)",
       optionIcon: "#6987C9",
+      optionIconHover: "#C6B38E",
       pending: "white",
       formTitle: "#007bff",
       tableHover: "#323232"

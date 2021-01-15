@@ -2,7 +2,9 @@ import axios from 'axios';
 import {
   API_BASE_URL,
   FETCH_PAYMENTS,
-  FETCH_BALANCES
+  FETCH_BALANCES,
+  CLIENT_LOGOUT,
+  CLIENT_LOGIN
 } from './types';
 import {dispatchAction} from '../utils/actions/common';
 
@@ -29,5 +31,17 @@ export const fetchClientBalances = (data) => {
     }).then(res => {
       return dispatchAction(dispatch, res, FETCH_BALANCES);
     })
+  }
+}
+
+export const clientLoginRequest = (credentials) => {
+  return dispatch => {
+    return dispatch({type: CLIENT_LOGIN})
+  }
+}
+
+export const clientLogoutRequest = () => {
+  return dispatch => {
+    return dispatch({type: CLIENT_LOGOUT})
   }
 }

@@ -1,17 +1,21 @@
+import { faPray } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
-// import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import {DefaultHeader} from '../../components/Header';
+import {clientLogoutRequest} from '../../actions/clientActions';
 
 const Header = (props) => {
   return (
-    <DefaultHeader>
+    <DefaultHeader
+      isAuthenticated={props.client.isAuthenticated}
+      onLogout={props.clientLogoutRequest}
+    >
     </DefaultHeader>
   )
 }
 
-// const mapStateToProps = state => ({
-//   user: state.user
-// })
+const mapStateToProps = state => ({
+  client: state.client
+})
 
-export default Header;
-// export default connect(mapStateToProps, {})(Header);
+export default connect(mapStateToProps, {clientLogoutRequest})(Header);

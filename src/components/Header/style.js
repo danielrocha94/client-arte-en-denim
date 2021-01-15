@@ -114,3 +114,7 @@ export const HeaderTitleImg = Styled.img`
   height: 45px;
   margin-left: 20px;
 `;
+
+export const HeaderTitleImgLink = Styled(Link)`
+  
+`;

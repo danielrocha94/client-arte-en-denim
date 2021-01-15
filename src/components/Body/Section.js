@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {SectionWrapper, SectionHeader, HeaderIconContainer, SectionHeaderTitle, HeaderCarat, SectionContainer} from './style';
-import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
+import {faAngleDown, faAngleUp} from '@fortawesome/free-solid-svg-icons';
 
 const Section = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <SectionWrapper>
+    <SectionWrapper onClick={()=>setIsOpen(!isOpen)}>
       { !props.hideHeader &&
         <SectionHeader>
           {props.title &&
@@ -13,12 +14,15 @@ const Section = (props) => {
             </SectionHeaderTitle>
           }
           <HeaderIconContainer>
-            <HeaderCarat icon={faAngleDown}/>
+            <HeaderCarat icon={isOpen ? faAngleUp : faAngleDown}/>
           </HeaderIconContainer>
         </SectionHeader>
       }
       <SectionContainer>
-        {props.children}
+        {isOpen ? 
+          props.children :
+          props.children.slice(0,3)
+        }
       </SectionContainer>
     </SectionWrapper>
   )

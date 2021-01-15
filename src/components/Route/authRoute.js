@@ -7,7 +7,7 @@ const AuthRoute = ({component: Component, ...rest}) => {
     <Route {...rest} 
       render={
         (props) => {
-          if(rest.user.isAuthenticated) {
+          if(rest.client.isAuthenticated) {
             return <Component {...props}/>
           } else {
             return <Redirect to={{
@@ -21,7 +21,7 @@ const AuthRoute = ({component: Component, ...rest}) => {
 }
 
 const mapStateToProps = state => ({
-  user: state.user,
+  client: state.client,
 })
 
 export default connect(mapStateToProps, {})(AuthRoute);

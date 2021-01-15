@@ -1,4 +1,7 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {useHistory} from 'react-router-dom';
+
 import {Page} from '../../components/Body';
 import {
   LoginContentWrapper,
@@ -19,7 +22,14 @@ import {
 import {BasicInput} from '../../components/Form/';
 import {DefaultButton} from '../../components/Button';
 
+import {clientLoginRequest} from '../../actions/clientActions';
+
 const Login = (props) => {
+  const handleLogin = () => {
+    props.clientLoginRequest();
+    props.history.push(props.history.location.state ? props.history.location.state.from : "/clientes");
+  }
+
   return (
     <Page style={{}}>
       <StripeBackground>
@@ -47,7 +57,7 @@ const Login = (props) => {
                       title="Contraseña"
                       type="password"
                     />
-                    <DefaultButton style={{marginTop: "12px",}}>
+                    <DefaultButton style={{marginTop: "12px",}} onClick={handleLogin}>
                       Continuar
                     </DefaultButton>
                   </LoginFormContainer>
@@ -61,4 +71,8 @@ const Login = (props) => {
   )
 } 
 
-export default Login;
+const mapStateToProps = state => ({
+  client: state.client
+})
+
+export default connect(mapStateToProps, {clientLoginRequest})(Login);

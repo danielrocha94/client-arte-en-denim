@@ -193,7 +193,8 @@ export const SectionHeader = Styled.div`
 export const SectionHeaderTitle = Styled.h4`
   font-size: 18px;
   margin: 0;
-  font-weight: 400;
+  font-weight: 600;
+  color: rgba(0,0,0,.54);
 `;
 
 export const HeaderIconContainer = Styled.div`
@@ -230,14 +231,12 @@ export const SectionTagWrapper = Styled.div`
 `;
 
 export const SectionTagHeader = Styled.div`
-  color: black;
   padding-bottom: 4px;
   text-overflow: elipsis;
-
 `;
 
 export const SectionTagContent = Styled.div`
-
+  color: rgba(0,0,0,.54);
 `;
 
 export const SectionFooterWrapper = Styled.div`
