@@ -3,7 +3,7 @@ import {SectionWrapper, SectionHeader, HeaderIconContainer, SectionHeaderTitle, 
 import {faAngleDown, faAngleUp} from '@fortawesome/free-solid-svg-icons';
 
 const Section = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <SectionWrapper onClick={()=>setIsOpen(!isOpen)}>
       { !props.hideHeader &&

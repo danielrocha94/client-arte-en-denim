@@ -4,7 +4,8 @@ import {
   FETCH_PAYMENTS,
   FETCH_BALANCES,
   CLIENT_LOGOUT,
-  CLIENT_LOGIN
+  CLIENT_LOGIN,
+  FETCH_ACCOUNT_INFO
 } from './types';
 import {dispatchAction} from '../utils/actions/common';
 
@@ -43,5 +44,18 @@ export const clientLoginRequest = (credentials) => {
 export const clientLogoutRequest = () => {
   return dispatch => {
     return dispatch({type: CLIENT_LOGOUT})
+  }
+}
+
+export const clientAccountInfo = (data) => {
+  return dispatch => {
+    return axios({
+      method: 'GET',  
+      url: API_BASE_URL+'/clients/accountInfo',
+      params: data,
+      json: true,
+    }).then(res => {
+      return dispatchAction(dispatch, res, FETCH_ACCOUNT_INFO);
+    })
   }
 }

@@ -2,6 +2,7 @@ export const API_BASE_URL = process.env.REACT_APP_TEST_API_BASE_URL;
 
 export const FETCH_PAYMENTS = 'FETCH_PAYMENTS';
 export const FETCH_BALANCES = 'FETCH_BALANCES';
+export const FETCH_ACCOUNT_INFO = 'FETCH_ACCOUNT_INFO';
 
 export const CLIENT_LOGIN = "CLIENT_LOGIN";
 export const CLIENT_LOGOUT = "CLIENT_LOGOUT";

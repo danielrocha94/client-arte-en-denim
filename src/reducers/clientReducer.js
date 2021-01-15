@@ -1,8 +1,9 @@
-import { FETCH_PAYMENTS, FETCH_BALANCES, CLIENT_LOGIN, CLIENT_LOGOUT} from '../actions/types';
+import { FETCH_PAYMENTS, FETCH_BALANCES, CLIENT_LOGIN, CLIENT_LOGOUT, FETCH_ACCOUNT_INFO} from '../actions/types';
 
 const initialState = {
   payments: [],
   balances: [],
+  data: {},
   isAuthenticated: false,
 }
 
@@ -16,6 +17,8 @@ export default function(state = initialState, action) {
       return {...state, isAuthenticated: true }
     case CLIENT_LOGOUT:
       return {...state, isAuthenticated: false }
+    case FETCH_ACCOUNT_INFO:
+      return {...state, data: {...action.payload}}
     default:
       return state;
   }
