@@ -6,3 +6,4 @@ export const FETCH_ACCOUNT_INFO = 'FETCH_ACCOUNT_INFO';
 
 export const CLIENT_LOGIN = "CLIENT_LOGIN";
 export const CLIENT_LOGOUT = "CLIENT_LOGOUT";
+export const CLIENT_ERROR = "CLIENT_ERROR";

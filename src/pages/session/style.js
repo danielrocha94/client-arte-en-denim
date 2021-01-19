@@ -124,3 +124,7 @@ export const SecondLeftStripe = Styled.div`
   z-index: 2;
   opacity: 0.8;
 `;
+
+export const ErrorMsgLi = Styled.li`
+  color: red;
+`;

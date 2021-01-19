@@ -5,6 +5,7 @@ import {
   FETCH_BALANCES,
   CLIENT_LOGOUT,
   CLIENT_LOGIN,
+  CLIENT_ERROR,
   FETCH_ACCOUNT_INFO
 } from './types';
 import {dispatchAction} from '../utils/actions/common';
@@ -17,6 +18,7 @@ export const fetchClientPayments = (data) => {
       params: data,
       json: true,
     }).then(res => {
+      // debugger;
       return dispatchAction(dispatch, res, FETCH_PAYMENTS);
     })
   }
@@ -37,7 +39,16 @@ export const fetchClientBalances = (data) => {
 
 export const clientLoginRequest = (credentials) => {
   return dispatch => {
-    return dispatch({type: CLIENT_LOGIN})
+    return axios({
+      method: 'POST',
+      url: API_BASE_URL+'/login',
+      data: credentials,
+      json: true,
+    }).then(res => {
+      dispatchAction(dispatch, res, CLIENT_LOGIN);
+    }).catch((err) => {
+      dispatch({type: CLIENT_ERROR, payload: err.response.data.error})
+    })
   }
 }
 

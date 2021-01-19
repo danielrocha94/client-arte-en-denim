@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {StyledAlert} from './style';
 
-
 function FormFlashMessage(props) {
   const [show, setShow] = useState(true);
 
@@ -13,9 +12,19 @@ function FormFlashMessage(props) {
     }
   })
 
+  const onCloseHandler = () => {
+    debugger;
+    setShow(false);
+    props.onClose && props.onClose();
+  }
+
   if(show) {
     return (
-      <StyledAlert variant={props.variant || "primary"} onClose={() => setShow(false)} dismissible>
+      <StyledAlert 
+        variant={props.variant || "primary"}
+        onClose={onCloseHandler} 
+        dismissible>
+
         <StyledAlert.Heading>{props.heading}</StyledAlert.Heading>
         {props.children || props.variant}
         {props.footer &&
