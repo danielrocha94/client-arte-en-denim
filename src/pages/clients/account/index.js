@@ -10,7 +10,7 @@ const Account = (props) => {
   const [accountInfo, setAccountInfo] = useState(null);
 
   useEffect(() => {
-    props.clientAccountInfo({CustId: "A08"});
+    props.clientAccountInfo({CustId: "A08"})
   }, [])
 
   useEffect(() => {

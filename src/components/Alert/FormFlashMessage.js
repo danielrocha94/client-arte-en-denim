@@ -13,7 +13,6 @@ function FormFlashMessage(props) {
   })
 
   const onCloseHandler = () => {
-    debugger;
     setShow(false);
     props.onClose && props.onClose();
   }

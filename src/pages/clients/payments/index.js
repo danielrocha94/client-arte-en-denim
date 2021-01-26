@@ -12,7 +12,7 @@ import {
   fetchClientBalances,
   fetchClientPayments
 } from '../../../actions/clientActions';
-import {faFileInvoiceDollar, faCheck, faExclamationTriangle, faTimes} from '@fortawesome/free-solid-svg-icons';
+import {faFileInvoiceDollar} from '@fortawesome/free-solid-svg-icons';
 
 import PaymentRows from './paymentRows';
 import BalanceRows from './balanceRows';
@@ -22,10 +22,11 @@ const Payments = (props) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    let client = {Cliente: "A08"}
-    props.fetchClientPayments(client);
-    props.fetchClientBalances(client);
-  }, []);
+    if (props.client.isAuthenticated) {
+      props.fetchClientPayments({Cliente: props.client.user.client_id});
+      props.fetchClientBalances({Cliente: props.client.user.client_id});
+    }
+  }, [props.client.user]);
 
   useEffect(() => {
     if(props.payments.count) {
@@ -72,6 +73,7 @@ const Payments = (props) => {
 const mapStateToProps = state => ({
   payments: state.client.payments,
   balances: state.client.balances,
+  client: state.client,
 })
 
 const mapDispatchToProps = {

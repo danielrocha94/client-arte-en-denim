@@ -34,7 +34,6 @@ const BalanceRows = (props) => {
     });
   }
 
-
   return (
     <>
       <DataTable>

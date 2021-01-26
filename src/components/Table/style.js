@@ -128,6 +128,6 @@ export const ColoredDatumIcon = Styled(FontAwesomeIcon)`
 `;
 
 export const TableFooterWrapper = Styled.div`
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 `;

@@ -4,6 +4,9 @@ import Alert from 'react-bootstrap/Alert';
 export const AlertContainer = Styled.div`
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+  top: 65px;
+  z-index: 1;
 `;
 
 export const StyledAlert = Styled(Alert)`

@@ -24,7 +24,8 @@ import {BasicInput} from '../../components/Form/';
 import {DefaultButton} from '../../components/Button';
 import {FormFlashMessage} from '../../components/Alert';
 
-import {clientLoginRequest} from '../../actions/clientActions';
+import {clientLoginRequest, clientTokenLoginRequest} from '../../actions/clientActions';
+import {createFlashMessageRequest} from '../../actions/alertActions';
 
 const Login = (props) => {
 
@@ -32,11 +33,22 @@ const Login = (props) => {
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
+    let token = localStorage.getItem('auth-token');
+    if(token) {
+      props.history.push(props.history.location.state ? props.history.location.state.from : "/clientes");
+    }
+  }, [])
+
+  useEffect(() => {
     if(!!props.client.error && !props.client.isAuthenticated) {
       setErrorMessage(props.client.error);
     } else if(props.client.isAuthenticated) {
       props.history.push(props.history.location.state ? props.history.location.state.from : "/clientes");
-      //sign in alert;
+      props.createFlashMessageRequest({
+        closeTime: 7000,
+        variant: "success",
+        message: `Has iniciado sesión! Te damos la bienvenida ${props.client.user.first_name} ${props.client.user.last_name}.`
+      });
     }
   }, [props.client])
   
@@ -103,7 +115,8 @@ const Login = (props) => {
 } 
 
 const mapStateToProps = state => ({
-  client: state.client
+  client: state.client,
+  alert: state.alert,
 })
 
-export default connect(mapStateToProps, {clientLoginRequest})(Login);
+export default connect(mapStateToProps, {clientLoginRequest, clientTokenLoginRequest, createFlashMessageRequest})(Login);

@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from "styled-components";
 import {AuthRoute} from './components/Route';
+import {Alert} from './components/Alert';
 
 import defaultTheme from './components/themes/default';
 import Header from './pages/shared/header';
@@ -11,6 +12,7 @@ import Payments from './pages/clients/payments';
 import Configuration from './pages/clients/configuration';
 import Account from './pages/clients/account';
 import Login from './pages/session/login';
+import Index from './pages';
 
 const Routes = (props) => {
   return (
@@ -29,6 +31,7 @@ const Routes = (props) => {
           width: "100%", 
           height: "100%"}}>
           <Header/>
+          <Alert/>
           <Switch>
             <AuthRoute exact path="/clientes" component={Clients}/>
             <AuthRoute exact path="/clientes/cuenta" component={Account}/>
@@ -37,6 +40,7 @@ const Routes = (props) => {
             <AuthRoute exact path="/clientes/pagos" component={Payments}/>
             <AuthRoute exact path="/clientes/configurar" component={Configuration}/>
             <Route exact path="/login" component={Login}/>
+            <Route exact path="/" component={Index}/>
           </Switch>
         </div>
       </ThemeProvider>

@@ -16,9 +16,9 @@ export default function(state = initialState, action) {
     case FETCH_BALANCES:
       return {...state, balances: {...action.payload}}
     case CLIENT_LOGIN:
-      return {...state, isAuthenticated: true, error: null }
+      return {...state, ...action.payload} 
     case CLIENT_LOGOUT:
-      return {...state, isAuthenticated: false }
+      return {...state, isAuthenticated: false, user: {} }
     case FETCH_ACCOUNT_INFO:
       return {...state, data: {...action.payload}}
     case CLIENT_ERROR:

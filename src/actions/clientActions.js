@@ -10,6 +10,12 @@ import {
 } from './types';
 import {dispatchAction} from '../utils/actions/common';
 
+axios.interceptors.request.use(config => {
+  const token = localStorage.getItem('auth-token');
+  config.headers.authorization = `Bearer ${token}`;
+  return config;
+})
+
 export const fetchClientPayments = (data) => {
   return dispatch => {
     return axios({
@@ -18,8 +24,11 @@ export const fetchClientPayments = (data) => {
       params: data,
       json: true,
     }).then(res => {
-      // debugger;
       return dispatchAction(dispatch, res, FETCH_PAYMENTS);
+    }).catch(err => {
+      if (err.response.status === 401){
+
+      }
     })
   }
 }
@@ -45,15 +54,33 @@ export const clientLoginRequest = (credentials) => {
       data: credentials,
       json: true,
     }).then(res => {
-      dispatchAction(dispatch, res, CLIENT_LOGIN);
+      if(res.data.isAuthenticated) {
+        localStorage.setItem('auth-token', res.headers["auth-token"]);
+        dispatchAction(dispatch, res, CLIENT_LOGIN);
+      } else {
+        dispatch({type: CLIENT_ERROR, payload: res.data.message})
+      }
     }).catch((err) => {
       dispatch({type: CLIENT_ERROR, payload: err.response.data.error})
     })
   }
 }
 
+export const clientTokenLoginRequest = () => {
+  return dispatch => {
+    return axios({
+      method: 'POST',
+      url: API_BASE_URL+'/tokenLogin',
+      json: true,
+    }).then(res => {
+      dispatchAction(dispatch, res, CLIENT_LOGIN);
+    })
+  }
+}
+
 export const clientLogoutRequest = () => {
   return dispatch => {
+    localStorage.removeItem('auth-token');
     return dispatch({type: CLIENT_LOGOUT})
   }
 }
