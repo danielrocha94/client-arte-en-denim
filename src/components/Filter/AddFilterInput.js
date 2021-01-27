@@ -38,7 +38,15 @@ const AddFilterInput = (props) => {
 
   const handleDropdownSelect = (filter) => {
     let newFilter = {name: filter.name, value: ""};
-    setSelectedFilter(newFilter);
+    if(value.length) {
+      newFilter.value = value;
+      setValue("");
+      props.onCreate(newFilter);
+      setSelectedFilter(false);
+      setInputFocused(false);
+    } else {
+      setSelectedFilter(newFilter);
+    }
   }
 
   const handleFilterTextboxChange = (e) => {
@@ -51,8 +59,6 @@ const AddFilterInput = (props) => {
     props.onCreate(selectedFilter);
     setSelectedFilter(false);
   }
-
-  
 
   return (
     <AddFilterInputWrapper>
@@ -74,6 +80,7 @@ const AddFilterInput = (props) => {
         {inputFocused && 
           <FilterDropdown 
             filterList={props.filterList}
+            searchValue={value}
             onCreate={handleDropdownSelect} />
         }
       </>}

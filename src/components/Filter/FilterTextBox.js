@@ -26,7 +26,7 @@ const FilterTextBox = (props) => {
         </Toolbar>
         <TextInputContainer>
           <TextField
-            label="Coincida con" 
+            label="Coincida con"
             value={props.filter.value}
             onChange={props.onChange}/>
         </TextInputContainer>
@@ -42,7 +42,6 @@ const FilterTextBox = (props) => {
           >Aplicar</Button>
         </ApplyButtonContainer>
       </AppBar>
-
     </FilterTextBoxWrapper>
   )
 }

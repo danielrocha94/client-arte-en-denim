@@ -10,6 +10,7 @@ const FilterDropdown = (props) => {
             onClick={() => props.onCreate(filter)}
           >
             {filter.name}
+            {props.searchValue && !!props.searchValue.length && ` que contenga "${props.searchValue}"`}
           </FilterDropdownItemContainer>
       )
       }

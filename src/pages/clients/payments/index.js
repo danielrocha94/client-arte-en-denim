@@ -25,9 +25,9 @@ const Payments = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   //lets load filters from api
   const [filterList, setFilterList] = useState([
-    {col: 'CuryOrigDocAmt', name: 'Importe', type: "text"},
+    {col: 'CuryOrigDocAmt', name: 'Importe', type: "number"},
     {col: 'Cuenta', name: 'Cuenta', type: "text"},
-    {col: 'DocDate', name: 'Fecha de Documento', type: "text"},
+    {col: 'DocDate', name: 'Fecha de Documento', type: "date"},
     {col: 'Desc', name: 'Descripción', type: "text"},
   ]);
 
