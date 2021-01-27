@@ -19,9 +19,12 @@ const Section = (props) => {
         </SectionHeader>
       }
       <SectionContainer>
-        {isOpen ? 
+        {props.children && !(props.children.length > 2) &&
+          props.children
+        }
+        {props.children && props.children.length > 2 && (isOpen ? 
           props.children :
-          props.children.slice(0,3)
+          props.children.slice(0,3))
         }
       </SectionContainer>
     </SectionWrapper>

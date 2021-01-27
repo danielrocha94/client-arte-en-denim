@@ -8,9 +8,12 @@ import {
   Section
 } from '../../../components/Body';
 import {Tab, TabGroup} from '../../../components/Navs';
+import {AddFilter} from '../../../components/Filter';
 import {
   fetchClientBalances,
-  fetchClientPayments
+  fetchAllClientBalances,
+  fetchClientPayments,
+  fetchAllClientPayments,
 } from '../../../actions/clientActions';
 import {faFileInvoiceDollar} from '@fortawesome/free-solid-svg-icons';
 
@@ -20,9 +23,34 @@ import BalanceRows from './balanceRows';
 const Payments = (props) => {
   const [selectedTab, setSelectedTab] = useState("pagos");
   const [isLoading, setIsLoading] = useState(true);
+  //lets load filters from api
+  const [filterList, setFilterList] = useState([
+    {col: 'CuryOrigDocAmt', name: 'Importe', type: "text"},
+    {col: 'Cuenta', name: 'Cuenta', type: "text"},
+    {col: 'DocDate', name: 'Fecha de Documento', type: "text"},
+    {col: 'Desc', name: 'Descripción', type: "text"},
+  ]);
+
+  const [activeFilters, setActiveFilters] = useState([]);
+
+  const handleFilterDelete = (filter) => {
+    let newActiveFilers = activeFilters.filter(active => filter.name !== active.name);
+    setActiveFilters(newActiveFilers);
+  }
+
+  const handleFilterAdd = (filter) => {
+    setActiveFilters([...activeFilters, filter]);
+  }
+
+  const handleClearFilters = () => {
+    setActiveFilters([])
+  }
 
   useEffect(() => {
-    if (props.client.isAuthenticated) {
+    if(props.client.isAdmin) {
+      props.fetchAllClientPayments();
+      props.fetchAllClientBalances();
+    } else if (props.client.isAuthenticated) {
       props.fetchClientPayments({Cliente: props.client.user.client_id});
       props.fetchClientBalances({Cliente: props.client.user.client_id});
     }
@@ -38,6 +66,16 @@ const Payments = (props) => {
     <Page style={{background: "#EEEEEE"}}>
       <BasicBreadCrumb>Pagos</BasicBreadCrumb>
       <Content title="Pagos" icon={faFileInvoiceDollar}>
+        <Section hideHeader>
+          <AddFilter
+            filterList={filterList}
+            activeFilters={activeFilters}
+            onDelete={handleFilterDelete}
+            onClear={handleClearFilters}
+            onCreate={handleFilterAdd}
+            onUpdate={()=>{}}
+          />
+        </Section>
         <Section hideHeader>
           <TabGroup>
             <Tab 
@@ -78,7 +116,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   fetchClientPayments,
-  fetchClientBalances
+  fetchClientBalances,
+  fetchAllClientBalances,
+  fetchAllClientPayments,
 }
 
 

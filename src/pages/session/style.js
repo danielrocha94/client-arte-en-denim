@@ -128,3 +128,25 @@ export const SecondLeftStripe = Styled.div`
 export const ErrorMsgLi = Styled.li`
   color: red;
 `;
+
+export const LoginFooter = Styled.div`
+  padding-left: 20px;
+  padding-top: 32px;
+`;
+
+export const LoginFooterText = Styled.div`
+  margin-left: 4px;
+  margin-top: 4px;
+  color: rgb(60, 66, 87);
+  font-size: 14px;
+`;
+
+export const LoginFooterLink = Styled.a`
+  cursor: pointer;
+  padding-left: 5px;
+  color: rgb(99, 91, 255);
+  &:hover {
+    color: rgb(60, 66, 87);
+    text-decoration: none;
+  }
+`;

@@ -21,7 +21,7 @@ const PaymentRows = (props) => {
       range: {min: ((value-1) * page.per), max: (value * 10)}
     });
   }
-
+  
   return (
     <>
       <DataTable>

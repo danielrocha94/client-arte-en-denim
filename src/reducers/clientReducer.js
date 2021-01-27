@@ -7,6 +7,7 @@ const initialState = {
   user: {},
   error: null,
   isAuthenticated: false,
+  isAdmin: false,
 }
 
 export default function(state = initialState, action) {

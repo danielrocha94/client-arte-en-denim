@@ -17,7 +17,10 @@ import {
    StripeBackground,
    FirstLeftStripe,
    SecondLeftStripe,
-   ErrorMsgLi
+   ErrorMsgLi,
+   LoginFooter,
+   LoginFooterText,
+   LoginFooterLink,
   } from './style';
 
 import {BasicInput} from '../../components/Form/';
@@ -108,6 +111,12 @@ const Login = (props) => {
               </LoginContainerFormPaddingHorizontal>
             </LoginContainerFormPadding>
           </LoginContainer>
+          <LoginFooter>
+            <LoginFooterText>
+              ¿No tienes una cuenta?
+              <LoginFooterLink>Crea tu cuenta</LoginFooterLink>
+            </LoginFooterText>
+          </LoginFooter>
         </FormContainer>
       </LoginContentWrapper>
     </Page>

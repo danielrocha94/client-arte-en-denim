@@ -33,12 +33,40 @@ export const fetchClientPayments = (data) => {
   }
 }
 
+export const fetchAllClientPayments = () => {
+  return dispatch => {
+    return axios({
+      method: 'GET',
+      url: API_BASE_URL+'/admin/payments',
+      json: true,
+    }).then(res => {
+      return dispatchAction(dispatch, res, FETCH_PAYMENTS);
+    }).catch(err => {
+      if (err.response && err.response.status === 401){
+
+      }
+    })
+  }
+}
+
 export const fetchClientBalances = (data) => {
   return dispatch => {
     return axios({
       method: 'GET',  
       url: API_BASE_URL+'/clients/balance',
       params: data,
+      json: true,
+    }).then(res => {
+      return dispatchAction(dispatch, res, FETCH_BALANCES);
+    })
+  }
+}
+
+export const fetchAllClientBalances = () => {
+  return dispatch => {
+    return axios({
+      method: 'GET',  
+      url: API_BASE_URL+'/admin/balance',
       json: true,
     }).then(res => {
       return dispatchAction(dispatch, res, FETCH_BALANCES);
