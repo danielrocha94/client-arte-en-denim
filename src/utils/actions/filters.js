@@ -36,7 +36,7 @@ export const filterOptions = {
   },
   'date': {
     'in_the_last':  {
-      'method': (col, val) => new Date(new Date().setDate(new Date().getDate() - val)) < new Date(col),
+      'method': (col, val) => new Date(new Date().setDate(new Date().getDate() - (parseInt(val)+1))) <= new Date(col),
       'name': "En los ultimos",
     },
     'equals':  {
@@ -44,15 +44,15 @@ export const filterOptions = {
       'name': "El dia",
     },
     'between':  {
-      'method': (col, val) => new Date(val[0]) > new Date(col) && new Date(val[1]) < new Date(col),
+      'method': (col, val) => new Date(val[0]) <= new Date(col) && new Date(val[1]) >= new Date(col),
       'name': "Entre las fechas",
     },
     'after':  {
-      'method': (col, val) => new Date(val) > new Date(col),
+      'method': (col, val) => new Date(val) < new Date(col),
       'name': "Después de",
     },
     'before':  {
-      'method': (col, val) => new Date(val) < new Date(col),
+      'method': (col, val) => new Date(val) > new Date(col),
       'name': "Antes de",
     },
   },

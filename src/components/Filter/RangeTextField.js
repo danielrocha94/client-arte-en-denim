@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {AppBar, Toolbar, Typography, TextField, Button, Select, MenuItem} from '@material-ui/core';
+import {TextField} from '@material-ui/core';
 
 const RangeTextField = (props) => {
   const [range, setRange] = useState({min: "", max: ""});
@@ -16,16 +16,38 @@ const RangeTextField = (props) => {
 
   return (
     <>
-      <TextField
-        label={"Minimo"}
-        id={"min"}
-        value={props.min}
-        onChange={handleChange}/>
-      <TextField
-        label={"Máximo"}
-        id={"max"}
-        value={props.max}
-        onChange={handleChange}/>
+      {props.type === "date" ?
+        <>
+          <TextField
+            id="min"
+            label="Fecha Inicial"
+            type="date"
+            onChange={handleChange}
+            InputLabelProps={{
+              shrink: true,
+          }}/>
+          <TextField
+            id="max"
+            label="Fecha Final"
+            type="date"
+            onChange={handleChange}
+            InputLabelProps={{
+              shrink: true,
+          }}/>
+        </> :
+        <>
+          <TextField
+            label={"Minimo"}
+            id={"min"}
+            value={props.min}
+            onChange={handleChange}/>
+          <TextField
+            label={"Máximo"}
+            id={"max"}
+            value={props.max}
+            onChange={handleChange}/>
+        </>
+      }
     </>
   )
 }

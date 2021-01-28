@@ -50,22 +50,12 @@ const FilterTextBox = (props) => {
       }
       if (props.filter.type === "between") {
         return (
-          <>
-          <TextField
-            id="start_date"
-            label="Fecha Inicial"
+          <RangeTextField 
             type="date"
-            InputLabelProps={{
-              shrink: true,
-            }}/>
-            <TextField
-            id="end_date"
-            label="Fecha Final"
-            type="date"
-            InputLabelProps={{
-              shrink: true,
-            }}/>
-          </>
+            min={props.filter.value[0]}
+            max={props.filter.value[1]}
+            onChange={props.onChange}
+          />
         )  
       }
       return (

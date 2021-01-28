@@ -5,7 +5,11 @@ const FilterDropdown = (props) => {
   return (
     <FilterDropdownWrapper>
       {
-        props.filterList.map(filter => 
+        props.filterList
+        .filter(filter => 
+          props.activeFilters.every(active => active.col !== filter.col)
+        )
+        .map(filter => 
           <FilterDropdownItemContainer
             onClick={() => props.onCreate(filter)}
           >

@@ -75,6 +75,7 @@ const AddFilterInput = (props) => {
         {inputFocused && 
           <FilterDropdown 
             filterList={props.filterList}
+            activeFilters={props.activeFilters}
             searchValue={value}
             onCreate={handleDropdownSelect} />
         }

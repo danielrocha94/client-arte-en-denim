@@ -18,6 +18,7 @@ const AddFilter = (props) => {
       }
       <AddFilterInput
         filterList={props.filterList}
+        activeFilters={props.activeFilters}
         onCreate={props.onCreate}/>
       <ClearFilters onClick={props.onClear}/>
     </AddFilterWrapper>
