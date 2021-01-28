@@ -81,12 +81,27 @@ export const filterOptions = {
   }
 }
 
+const formatValue = (value) => {
+  let onlyNumbers = /^\d*(\.\d+)?$/;
+
+  if(typeof value === "string") {
+    value = value.trim().toLowerCase();
+  }
+
+  if(typeof value === "number" || value.match(onlyNumbers)) {
+    value = parseInt(value);
+  }
+  return value;
+}
+
 const compareRow = (row, filter) => {
   //between val = [min, max];
   let col = row[filter.col];
   let val = filter.value;
 
   //NOTE: validate col and val types;
+  col = formatValue(col);
+  val = formatValue(val);
   // make all strings to lower case; trim cols;
   let accessMethod = filterOptions[filter.data][filter.type].method;
   return accessMethod(col, val)

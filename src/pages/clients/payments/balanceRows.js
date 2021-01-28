@@ -1,10 +1,21 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {DataTable, DataTbody, DataThead, Header, Row, Datum, ColoredDatum, DataTableFooter} from '../../../components/Table';
 import {faCheck, faExclamationTriangle, faTimes} from '@fortawesome/free-solid-svg-icons';
 import Moment from 'react-moment';
 
 const BalanceRows = (props) => {
   let [page, setPage] = useState({per: 10, current: 1, range: {min: 0, max: 10} });
+
+  useEffect(() => {
+    setPage({
+      ...page,
+      current: 1,
+      range: {
+        min: 0,
+        max: 10,
+      }
+    });
+  }, [props.balances])
 
   const getDocTypeName = (type) => {
     let DocTypeObj = {
@@ -42,6 +53,7 @@ const BalanceRows = (props) => {
     <>
       <DataTable>
         <DataThead>
+          <Header>Nombre</Header>
           <Header>Total</Header>
           <Header>Estado</Header>
           <Header>Balance debido</Header>
@@ -53,7 +65,8 @@ const BalanceRows = (props) => {
           {props.balances.count > 0 && props.balances.rows.slice(page.range.min, page.range.max).map(balance => {
             return (
               <Row>
-                <Datum boldc>{FormatMoney(balance.CuryOrigDocAmt)}</Datum>
+                <Datum>{balance.Nombre}</Datum>
+                <Datum bold>{FormatMoney(balance.CuryOrigDocAmt)}</Datum>
                 <Datum><ColoredDatum variant={balance.balance > 0 ? "warning":"success"} icon={faCheck}>{balance.balance > 0 ? "Pendiente" : "Exitoso" } </ColoredDatum></Datum>
                 <Datum>{balance.balance}</Datum>
                 <Datum>{getDocTypeName(balance.DocType)}</Datum>

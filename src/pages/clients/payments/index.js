@@ -26,6 +26,7 @@ const Payments = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   //lets load filters from api
   const [filterList, setFilterList] = useState([
+    {col: 'Nombre', name: 'Nombre', data: 'text', type: 'starts_with'},
     {col: 'CuryOrigDocAmt', name: 'Importe', data: "number", type: "equals"},
     {col: 'Cuenta', name: 'Cuenta', data: "text", type: "starts_with"},
     {col: 'DocDate', name: 'Fecha de Documento', data: "date", type: "after"},
@@ -58,7 +59,7 @@ const Payments = (props) => {
     let processedRows = filterRows(rows, activeFilters);
     setFilteredRows(processedRows);
     setIsLoading(false);
-  }, [activeFilters])
+  }, [activeFilters, selectedTab])
 
   useEffect(() => {
     if(props.client.isAdmin) {
@@ -112,8 +113,14 @@ const Payments = (props) => {
           { isLoading ?
             <>Cargando...</> :
             <>
-              {selectedTab === "pagos" && <PaymentRows payments={filteredRows || props.payments}/>}
-              {selectedTab === "saldos" && <BalanceRows balances={filteredRows || props.balances}/>}
+              {selectedTab === "pagos" && 
+                <PaymentRows 
+                  setFilterList={setFilterList}
+                  payments={filteredRows || props.payments}/>}
+              {selectedTab === "saldos" &&
+                <BalanceRows
+                  setFilterList={setFilterList}
+                  balances={filteredRows || props.balances}/>}
             </>
           }
           </Section>

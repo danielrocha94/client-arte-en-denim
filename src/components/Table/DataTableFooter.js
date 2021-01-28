@@ -4,10 +4,12 @@ import {TableFooterWrapper} from './style';
 
 const DataTableFooter = (props) => {
   const [totalPages, setTotalPages] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     setTotalPages(Math.ceil(props.data.rows.length / props.page.per))
-  }, [props.data.rows])
+    setCurrentPage(props.page.current);
+  }, [props.data.rows, props.page])
 
   return (
     <TableFooterWrapper>
@@ -18,7 +20,7 @@ const DataTableFooter = (props) => {
       </div>
       <MaterialPagination
         pages={totalPages}
-        current={props.page.current} 
+        current={currentPage} 
         disabled={props.disabled}
         onChange={props.onChange}/>
     </TableFooterWrapper>
