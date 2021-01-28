@@ -6,15 +6,15 @@ const DataTableFooter = (props) => {
   const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
-    setTotalPages(Math.ceil(props.data.count / props.page.per))
-  }, [])
+    setTotalPages(Math.ceil(props.data.rows.length / props.page.per))
+  }, [props.data.rows])
 
   return (
     <TableFooterWrapper>
       <div>
         mostrando del
         <b> {props.page.range.min+1}</b> al <b>{props.page.range.max}</b> -
-        de <b>{props.data.count || 0}</b> resultados
+        de <b>{props.data.rows.length || 0}</b> resultados
       </div>
       <MaterialPagination
         pages={totalPages}

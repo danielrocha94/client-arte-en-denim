@@ -16,6 +16,7 @@ import {
   fetchAllClientPayments,
 } from '../../../actions/clientActions';
 import {faFileInvoiceDollar} from '@fortawesome/free-solid-svg-icons';
+import {filterRows} from '../../../utils/actions/filters';
 
 import PaymentRows from './paymentRows';
 import BalanceRows from './balanceRows';
@@ -25,13 +26,13 @@ const Payments = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   //lets load filters from api
   const [filterList, setFilterList] = useState([
-    {col: 'CuryOrigDocAmt', name: 'Importe', type: "number"},
-    {col: 'Cuenta', name: 'Cuenta', type: "text"},
-    {col: 'DocDate', name: 'Fecha de Documento', type: "date"},
-    {col: 'Desc', name: 'Descripción', type: "text"},
+    {col: 'CuryOrigDocAmt', name: 'Importe', data: "number", type: "equals"},
+    {col: 'Cuenta', name: 'Cuenta', data: "text", type: "starts_with"},
+    {col: 'DocDate', name: 'Fecha de Documento', data: "date", type: "after"},
+    {col: 'invcNbr', name: 'Descripción', data: "text", type: "contains"},
   ]);
-
   const [activeFilters, setActiveFilters] = useState([]);
+  const [filteredRows, setFilteredRows] = useState(false);
 
   const handleFilterDelete = (filter) => {
     let newActiveFilers = activeFilters.filter(active => filter.name !== active.name);
@@ -45,6 +46,19 @@ const Payments = (props) => {
   const handleClearFilters = () => {
     setActiveFilters([])
   }
+
+  useEffect(()=> {
+    if(!activeFilters.length) {
+      setFilteredRows(false);
+      return
+    }
+
+    setIsLoading(true);
+    let rows = selectedTab === "pagos" ? props.payments : props.balances;
+    let processedRows = filterRows(rows, activeFilters);
+    setFilteredRows(processedRows);
+    setIsLoading(false);
+  }, [activeFilters])
 
   useEffect(() => {
     if(props.client.isAdmin) {
@@ -98,8 +112,8 @@ const Payments = (props) => {
           { isLoading ?
             <>Cargando...</> :
             <>
-              {selectedTab === "pagos" && <PaymentRows payments={props.payments}/>}
-              {selectedTab === "saldos" && <BalanceRows balances={props.balances}/>}
+              {selectedTab === "pagos" && <PaymentRows payments={filteredRows || props.payments}/>}
+              {selectedTab === "saldos" && <BalanceRows balances={filteredRows || props.balances}/>}
             </>
           }
           </Section>

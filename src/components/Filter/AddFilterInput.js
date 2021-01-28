@@ -16,18 +16,14 @@ const AddFilterInput = (props) => {
   const [value, setValue] = useState("");
 
   useEffect(() => {
-    if(selectedFilter) {
-      setShowFilterTextBox(true);
-    } else {
-      setShowFilterTextBox(false);
-    }
+      setShowFilterTextBox(selectedFilter);
   }, [selectedFilter])
 
   const toggleFocus = () => {
     if (!value.length) {
       setTimeout(() => {
         setInputFocused(!inputFocused);
-      }, 150)
+      }, 400) //FIX THIS PATCH
     }
   }
 
@@ -37,7 +33,7 @@ const AddFilterInput = (props) => {
   }
 
   const handleDropdownSelect = (filter) => {
-    let newFilter = {name: filter.name, value: ""};
+    let newFilter = {...filter, value: ""};
     if(value.length) {
       newFilter.value = value;
       setValue("");
@@ -49,9 +45,8 @@ const AddFilterInput = (props) => {
     }
   }
 
-  const handleFilterTextboxChange = (e) => {
-    let val = e.target.value
-    let newFilter = {...selectedFilter, value: val};
+  const handleFilterChange = (e) => {
+    let newFilter = {...selectedFilter, ...e};
     setSelectedFilter(newFilter);
   }
 
@@ -87,7 +82,7 @@ const AddFilterInput = (props) => {
       {showFilterTextBox && 
         <FilterTextBox
           onClose={() => {setSelectedFilter(false)}}
-          onChange={(e) => handleFilterTextboxChange(e)}
+          onChange={handleFilterChange}
           onClick={handleCreateFilter}
           filter={selectedFilter}
         />

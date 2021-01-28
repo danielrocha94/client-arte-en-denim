@@ -34,6 +34,10 @@ const BalanceRows = (props) => {
     });
   }
 
+  const FormatMoney = (num) => {
+    return "$ "+num.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")+" MXN"
+  }
+
   return (
     <>
       <DataTable>
@@ -49,7 +53,7 @@ const BalanceRows = (props) => {
           {props.balances.count > 0 && props.balances.rows.slice(page.range.min, page.range.max).map(balance => {
             return (
               <Row>
-                <Datum boldc>${balance.CuryOrigDocAmt} MXN</Datum>
+                <Datum boldc>{FormatMoney(balance.CuryOrigDocAmt)}</Datum>
                 <Datum><ColoredDatum variant={balance.balance > 0 ? "warning":"success"} icon={faCheck}>{balance.balance > 0 ? "Pendiente" : "Exitoso" } </ColoredDatum></Datum>
                 <Datum>{balance.balance}</Datum>
                 <Datum>{getDocTypeName(balance.DocType)}</Datum>
