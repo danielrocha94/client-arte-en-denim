@@ -95,8 +95,11 @@ export const ColoredDatumWrapper = Styled.div`
   border-radius: 4px;
   font-size: 12px;
   font-weight: 700;
-  width: 75px;
+  min-width: 90px;
   margin: 0;
+  display: flex;
+  justify-content: space-around;
+  align-self: center;
   ${props => props.variant === "success" && SuccessDatum};
   ${props => props.variant === "warning" && WarningDatum};
   ${props => props.variant === "danger" && DangerDatum};
@@ -125,6 +128,7 @@ const DangerDatum = css`
 export const ColoredDatumIcon = Styled(FontAwesomeIcon)`
   margin-left: 5px;
   font-size: 12px;
+  height: 20px;
 `;
 
 export const TableFooterWrapper = Styled.div`

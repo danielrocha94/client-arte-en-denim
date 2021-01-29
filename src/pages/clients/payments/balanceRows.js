@@ -48,17 +48,54 @@ const BalanceRows = (props) => {
   const FormatMoney = (num) => {
     return "$ "+num.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")+" MXN"
   }
+  
+  const getBalanceStatus = (balance) => {
+    const statusList = {
+      pending: {
+        text: "Pendiente",
+        status: "warning",
+        icon: faExclamationTriangle,
+      },
+      success: {
+        status: "success",
+        text: "Exitoso",
+        icon: faCheck,
+      },
+      danger: {
+        status: "danger",
+        text: "Atrasado!",
+        icon: faTimes,
+      }
+    }
+
+    let selectedStatus;
+
+    if (balance.balance > 0) {
+        let paydue = new Date(balance.PayDate.split("Z")[0])
+        if (paydue < new Date()) {
+          selectedStatus = statusList.danger;
+        } else {
+          selectedStatus = statusList.pending
+        }
+    } else {
+      selectedStatus = statusList.success
+    }
+
+    return <ColoredDatum variant={selectedStatus.status} icon={selectedStatus.icon}>{selectedStatus.text}</ColoredDatum>
+  }
 
   return (
     <>
       <DataTable>
         <DataThead>
           <Header>Nombre</Header>
-          <Header>Total</Header>
           <Header>Estado</Header>
+          <Header>Total</Header>
           <Header>Balance debido</Header>
           <Header>Tipo</Header>
+          <Header>Referencia</Header>
           <Header>Descripcion</Header>
+          <Header>Límite</Header>
           <Header>Fecha</Header>
         </DataThead>
         <DataTbody>
@@ -66,12 +103,24 @@ const BalanceRows = (props) => {
             return (
               <Row>
                 <Datum>{balance.Nombre}</Datum>
+                <Datum>{getBalanceStatus(balance)}</Datum>
                 <Datum bold>{FormatMoney(balance.CuryOrigDocAmt)}</Datum>
-                <Datum><ColoredDatum variant={balance.balance > 0 ? "warning":"success"} icon={faCheck}>{balance.balance > 0 ? "Pendiente" : "Exitoso" } </ColoredDatum></Datum>
-                <Datum>{balance.balance}</Datum>
+                <Datum>{FormatMoney(balance.balance)}</Datum>
                 <Datum>{getDocTypeName(balance.DocType)}</Datum>
                 <Datum>{balance.RefNbr}</Datum>
-                <Datum><Moment date={balance.DocDate} fromNow locale="es-mx"/></Datum>
+                <Datum>{balance.Descr}</Datum>
+                <Datum>
+                  <Moment 
+                    date={balance.PayDate} 
+                    fromNow 
+                    locale="es-mx"
+                  />
+                   {" "}({new Date(balance.PayDate.split("Z")[0]).toLocaleString().split(",")[0]})
+                </Datum>
+                <Datum>
+                  <Moment date={balance.DocDate} fromNow locale="es-mx"/>
+                  {" "}({new Date(balance.DocDate.split("Z")[0]).toLocaleString().split(",")[0]})
+                </Datum>
               </Row>
             )
           })}
